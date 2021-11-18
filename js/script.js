@@ -94,4 +94,20 @@ function draw() {
 
 pipeBottom.onload = draw;
 
-console.log("Hi");
+
+var tik = 0;
+var interval = setInterval(function () {
+    tik++;
+    res.innerHTML = tik;
+}, 1000);
+
+window.addEventListener('blur', function () {
+    clearInterval(interval);
+}, false);
+
+window.addEventListener('focus', function () {
+    interval = setInterval(function () {
+        tik++;
+        res.innerHTML = tik;
+    }, 1000);
+}, false);
